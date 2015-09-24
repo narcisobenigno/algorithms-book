@@ -76,4 +76,19 @@ public class Stack<Item> implements Iterable<Item> {
 		}
 		return items.stream().map(i -> i.toString()).collect(Collectors.joining("|"));
 	}
+
+	public static <Item> Stack<Item> copy(Stack<Item> stack) {
+		Stack<Item> temp = new Stack<>();
+		for (Item item : stack) {
+			temp.push(item);
+		}
+
+		Stack<Item> copy = new Stack<>();
+
+		for (Item item : temp) {
+			copy.push(item);
+		}
+
+		return copy;
+	}
 }
